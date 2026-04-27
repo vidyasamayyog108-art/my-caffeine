@@ -1,0 +1,381 @@
+// Version: 3.0.0
+type AdId__248619452 = Nat;
+type AdInternal__290109821 =
+  {
+    var adText : Text;
+    var adType : AdType__479515118;
+    var clicks : Nat;
+    var companyName : Text;
+    var contactNumber : Text;
+    createdAt : Timestamp__301639476;
+    var endDate : Timestamp__301639476;
+    id : AdId__248619452;
+    var imageAssetId : Text;
+    var imageUrl : Text;
+    var isActive : Bool;
+    var langText : AdLangText__911357814;
+    var startDate : Timestamp__301639476;
+    var updatedAt : Timestamp__301639476;
+    var views : Nat;
+    var websiteLink : Text
+  };
+type AdLangText__911357814 = {en : Text; hi : Text; kn : Text; mr : Text};
+type AdType__479515118 = {#both; #image; #text};
+type AnnouncementId__365153885 = Nat;
+type AnnouncementId__71713383 = AnnouncementId__365153885;
+type AnnouncementInternal__582215934 =
+  {
+    var author : Text;
+    var content : Text;
+    createdAt : Timestamp__413059503;
+    id : AnnouncementId__71713383;
+    var isActive : Bool;
+    var title : Text;
+    var updatedAt : Timestamp__413059503
+  };
+type ChatMessageId__771800893 = Nat;
+type ChatMessage__641304605 =
+  {
+    createdAt : Timestamp__897596823;
+    id : ChatMessageId__771800893;
+    isBot : Bool;
+    language : Text;
+    message : Text;
+    sessionId : Text;
+    userId : ?MemberId__637550271
+  };
+type ConversationInternal__1033832941 =
+  {
+    var freeTierSenderCount : Nat;
+    var freeTierWindowStart : ?Timestamp__233637616;
+    var isMuted : Bool;
+    var lastMessageAt : Timestamp__233637616;
+    member1 : MemberId__709872675;
+    member2 : MemberId__709872675;
+    var messageCount : Nat
+  };
+type FamilyType__105062340 = {#Extended; #Joint; #Nuclear};
+type Gender__510239330 = {#Female; #Male};
+type ListStruct__388090611<T> =
+  {var blockIndex : Nat; var blocks : [var [var ?T]]; var elementIndex : Nat};
+type MemberId__137795837 = MemberId__2990653;
+type MemberId__2990653 = Nat;
+type MemberId__637550271 = MemberId__2990653;
+type MemberId__709872675 = MemberId__2990653;
+type MemberInternal__1008783015 =
+  {
+    var age : Nat;
+    var annualIncomeINR : Nat;
+    var birthPlace : ?Text;
+    var birthPlaceLat : ?Float;
+    var birthPlaceLng : ?Float;
+    var birthTime : ?Text;
+    var charan : ?Nat;
+    var city : Text;
+    createdAt : Timestamp__413059503;
+    var dateOfBirth : Text;
+    var education : Text;
+    var familyType : FamilyType__105062340;
+    var fatherOccupation : Text;
+    var gender : Gender__510239330;
+    var heightCm : Nat;
+    id : MemberId__137795837;
+    var isActive : Bool;
+    var isVerified : Bool;
+    var membership : MembershipTier__553384355;
+    var mobileNumber : ?Text;
+    var motherOccupation : Text;
+    var nakshatra : ?Nat;
+    var name : Text;
+    var nativePlace : Text;
+    var occupation : Text;
+    owner : Principal;
+    var partnerPreferences : PartnerPreferences__255970949;
+    var paymentScreenshotUrl : ?Text;
+    var paymentStatus : PaymentStatus__885462070;
+    var paymentUpiRef : ?Text;
+    var photoAssetId : ?Text;
+    var photoModerationStatus : PhotoModerationStatus__1017368402;
+    var photoUrl : Text;
+    var profileViews : Nat;
+    var rashi : ?Nat;
+    var siblingsCount : Nat;
+    var updatedAt : Timestamp__413059503;
+    var upjati : ?Text
+  };
+type MembershipTier__553384355 = {#Free; #Premium};
+type MessageId__291319400 = Nat;
+type MessageId__883709611 = MessageId__291319400;
+type MessageInternal__200977786 =
+  {
+    var content : Text;
+    createdAt : Timestamp__233637616;
+    id : MessageId__883709611;
+    var isDeleted : Bool;
+    var isRead : Bool;
+    receiverId : MemberId__709872675;
+    senderId : MemberId__709872675
+  };
+type MobileOtp__672921871 =
+  {createdAt : Int; expiresAt : Int; mobile : Text; otp : Text};
+type Nat__490723111 = Nat__920180692;
+type Nat__920180692 = Nat;
+type OldConversationInternal__787472840 =
+  {
+    var freeTierSenderCount : Nat;
+    var freeTierWindowStart : ?Timestamp__233637616;
+    var isMuted : Bool;
+    var lastMessageAt : Timestamp__233637616;
+    member1 : MemberId__709872675;
+    member2 : MemberId__709872675;
+    var messageCount : Nat
+  };
+type OldMemberInternal__46444504 =
+  {
+    var age : Nat;
+    var annualIncomeINR : Nat;
+    var birthPlace : ?Text;
+    var birthPlaceLat : ?Float;
+    var birthPlaceLng : ?Float;
+    var birthTime : ?Text;
+    var charan : ?Nat;
+    var city : Text;
+    createdAt : Timestamp__413059503;
+    var dateOfBirth : Text;
+    var education : Text;
+    var familyType : FamilyType__105062340;
+    var fatherOccupation : Text;
+    var gender : Gender__510239330;
+    var heightCm : Nat;
+    id : MemberId__137795837;
+    var isActive : Bool;
+    var isVerified : Bool;
+    var membership : MembershipTier__553384355;
+    var mobileNumber : ?Text;
+    var motherOccupation : Text;
+    var nakshatra : ?Nat;
+    var name : Text;
+    var nativePlace : Text;
+    var occupation : Text;
+    owner : Principal;
+    var partnerPreferences : PartnerPreferences__255970949;
+    var paymentScreenshotUrl : ?Text;
+    var paymentStatus : PaymentStatus__885462070;
+    var paymentUpiRef : ?Text;
+    var photoAssetId : ?Text;
+    var photoModerationStatus : PhotoModerationStatus__1017368402;
+    var photoUrl : Text;
+    var profileViews : Nat;
+    var rashi : ?Nat;
+    var siblingsCount : Nat;
+    var updatedAt : Timestamp__413059503;
+    var upjati : ?Text
+  };
+type PartnerPreferences__255970949 =
+  {
+    maxAge : ?Nat;
+    maxHeight : ?Nat;
+    maxIncome : ?Nat;
+    minAge : ?Nat;
+    minHeight : ?Nat;
+    minIncome : ?Nat;
+    preferredEducation : [Text];
+    preferredLocations : [Text];
+    preferredOccupation : [Text];
+    preferredUpjati : [Text]
+  };
+type PaymentStatus__885462070 = {#Approved; #Pending; #Rejected; #Uploaded};
+type PhotoModerationStatus__1017368402 = {#Approved; #Pending; #Rejected};
+type SmsConfig__832161295 =
+  {
+    apiKey : Text;
+    enabled : Bool;
+    provider : SmsProvider__820621433;
+    senderName : Text;
+    templateId : ?Text
+  };
+type SmsOtpLogEntry__472585704 =
+  {
+    errorCode : ?Text;
+    phone : Text;
+    provider : Text;
+    success : Bool;
+    timestamp : Timestamp__233637616
+  };
+type SmsProvider__820621433 = {#Custom; #Fast2SMS; #MSG91};
+type StoryId__128844645 = Nat;
+type StoryId__81181762 = StoryId__128844645;
+type SuccessStoryInternal__514490126 =
+  {
+    var brideName : Text;
+    createdAt : Timestamp__413059503;
+    var featured : Bool;
+    var groomName : Text;
+    id : StoryId__81181762;
+    var marriageDate : Text;
+    var photoUrl : Text;
+    var testimonial : Text;
+    var updatedAt : Timestamp__413059503
+  };
+type Timestamp__233637616 = Timestamp__301639476;
+type Timestamp__301639476 = Int;
+type Timestamp__413059503 = Timestamp__301639476;
+type Timestamp__897596823 = Timestamp__301639476;
+actor ({
+  stable ADMIN_LOCK_DURATION : Int;
+  stable adIdHolder : {var nextAdId : Nat};
+  stable adminCreds :
+    {
+      var adminMobile : Text;
+      var failedAttempts : Nat;
+      var lockUntil : ?Timestamp__301639476;
+      var passwordHash : Text;
+      var username : Text
+    };
+  stable ads :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?AdInternal__290109821]];
+      var elementIndex : Nat__490723111
+    };
+  stable announcements :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?AnnouncementInternal__582215934]];
+      var elementIndex : Nat__490723111
+    };
+  stable chatIdHolder : {var nextChatMessageId : Nat};
+  stable chatMessages :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?ChatMessage__641304605]];
+      var elementIndex : Nat__490723111
+    };
+  in var conversations :
+    ListStruct__388090611<OldConversationInternal__787472840>;
+  in var members : ListStruct__388090611<OldMemberInternal__46444504>;
+  stable messages :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?MessageInternal__200977786]];
+      var elementIndex : Nat__490723111
+    };
+  stable otpRateLimitsHolder : {var data : [(Text, Nat, Int)]};
+  stable otpStore :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?MobileOtp__672921871]];
+      var elementIndex : Nat__490723111
+    };
+  stable paymentConfig :
+    {
+      var qrImageAssetId : Text;
+      var qrImageUrl : Text;
+      var updatedAt : Timestamp__301639476;
+      var upiId : Text
+    };
+  stable smsConfigHolder : {var config : ?SmsConfig__832161295};
+  stable smsOtpLog :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?SmsOtpLogEntry__472585704]];
+      var elementIndex : Nat__490723111
+    };
+  stable state :
+    {
+      var adminPrincipal : Principal;
+      var nextAnnouncementId : Nat;
+      var nextMemberId : Nat;
+      var nextMessageId : Nat;
+      var nextStoryId : Nat
+    };
+  stable stories :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?SuccessStoryInternal__514490126]];
+      var elementIndex : Nat__490723111
+    }
+}, {
+  stable ADMIN_LOCK_DURATION : Int;
+  stable adIdHolder : {var nextAdId : Nat};
+  stable adminCreds :
+    {
+      var adminMobile : Text;
+      var failedAttempts : Nat;
+      var lockUntil : ?Timestamp__301639476;
+      var passwordHash : Text;
+      var username : Text
+    };
+  stable ads :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?AdInternal__290109821]];
+      var elementIndex : Nat__490723111
+    };
+  stable announcements :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?AnnouncementInternal__582215934]];
+      var elementIndex : Nat__490723111
+    };
+  stable chatIdHolder : {var nextChatMessageId : Nat};
+  stable chatMessages :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?ChatMessage__641304605]];
+      var elementIndex : Nat__490723111
+    };
+  stable conversations :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?ConversationInternal__1033832941]];
+      var elementIndex : Nat__490723111
+    };
+  stable members :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?MemberInternal__1008783015]];
+      var elementIndex : Nat__490723111
+    };
+  stable messages :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?MessageInternal__200977786]];
+      var elementIndex : Nat__490723111
+    };
+  stable otpRateLimitsHolder : {var data : [(Text, Nat, Int)]};
+  stable otpStore :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?MobileOtp__672921871]];
+      var elementIndex : Nat__490723111
+    };
+  stable paymentConfig :
+    {
+      var qrImageAssetId : Text;
+      var qrImageUrl : Text;
+      var updatedAt : Timestamp__301639476;
+      var upiId : Text
+    };
+  stable smsConfigHolder : {var config : ?SmsConfig__832161295};
+  stable smsOtpLog :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?SmsOtpLogEntry__472585704]];
+      var elementIndex : Nat__490723111
+    };
+  stable state :
+    {
+      var adminPrincipal : Principal;
+      var nextAnnouncementId : Nat;
+      var nextMemberId : Nat;
+      var nextMessageId : Nat;
+      var nextStoryId : Nat
+    };
+  stable stories :
+    {
+      var blockIndex : Nat__490723111;
+      var blocks : [var [var ?SuccessStoryInternal__514490126]];
+      var elementIndex : Nat__490723111
+    }
+}) ;

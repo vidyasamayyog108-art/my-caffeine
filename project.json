@@ -1,0 +1,27 @@
+{
+  "overview": "Vivah Setu (विवाह सेतू) is a premium matrimony platform exclusively for the Digambar Jain community, offering profile browsing, smart matching with Kundali Milan, secure UPI payments, multilingual support (Marathi, Hindi, Kannada, English), and a feature-rich admin panel.",
+  "features": [
+    "Mobile OTP login (Fast2SMS/MSG91)",
+    "₹499 Premium membership with UPI payment",
+    "Profile photo upload and moderation",
+    "Kundali Milan ashtakoot matching (36 points, 8 gunas)",
+    "In-app messaging for matched members",
+    "AI help desk chatbot in 4 languages",
+    "Advertisement management with auto-rotation",
+    "Secure admin panel with triple authentication",
+    "Full 4-language support (MR/HI/KN/EN)",
+    "AI-designed Jain logo with Namaste symbol"
+  ],
+  "category": "social",
+  "tags": [
+    "matrimony",
+    "jain",
+    "digambar",
+    "indian",
+    "marathi",
+    "multilingual",
+    "matchmaking",
+    "community"
+  ],
+  "last_updated": "2026-04-23T07:53:31.256Z"
+}

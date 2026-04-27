@@ -1,0 +1,552 @@
+type UpdateAdInput = 
+ record {
+   adText: text;
+   adType: AdType;
+   companyName: text;
+   contactNumber: text;
+   endDate: Timestamp;
+   id: AdId;
+   imageAssetId: text;
+   imageUrl: text;
+   isActive: bool;
+   langText: AdLangText;
+   startDate: Timestamp;
+   websiteLink: text;
+ };
+type Timestamp = int;
+type SuccessStoryInput = 
+ record {
+   brideName: text;
+   featured: bool;
+   groomName: text;
+   marriageDate: text;
+   photoUrl: text;
+   testimonial: text;
+ };
+type SuccessStory = 
+ record {
+   brideName: text;
+   createdAt: Timestamp;
+   featured: bool;
+   groomName: text;
+   id: StoryId;
+   marriageDate: text;
+   photoUrl: text;
+   testimonial: text;
+   updatedAt: Timestamp;
+ };
+type StoryId = nat;
+type Stats = 
+ record {
+   activeMembers: nat;
+   premiumMembers: nat;
+   successfulMarriages: nat;
+   totalMembers: nat;
+ };
+type SmsProvider = 
+ variant {
+   Custom;
+   Fast2SMS;
+   MSG91;
+ };
+type SmsOtpLogEntry = 
+ record {
+   errorCode: opt text;
+   phone: text;
+   provider: text;
+   success: bool;
+   timestamp: Timestamp;
+ };
+type SmsConfig = 
+ record {
+   apiKey: text;
+   enabled: bool;
+   provider: SmsProvider;
+   senderName: text;
+   templateId: opt text;
+ };
+type SearchFilter = 
+ record {
+   city: opt text;
+   education: opt text;
+   gender: opt Gender;
+   maxAge: opt nat;
+   maxIncome: opt nat;
+   minAge: opt nat;
+   minIncome: opt nat;
+   occupation: opt text;
+   upjati: opt text;
+ };
+type PhotoModerationStatus = 
+ variant {
+   Approved;
+   Pending;
+   Rejected;
+ };
+type PhotoModerationInfo = 
+ record {
+   memberId: MemberId;
+   memberName: text;
+   photoAssetId: text;
+   photoModerationStatus: PhotoModerationStatus;
+ };
+type PaymentStatus = 
+ variant {
+   Approved;
+   Pending;
+   Rejected;
+   Uploaded;
+ };
+type PaymentConfigPublic = 
+ record {
+   qrImageAssetId: text;
+   qrImageUrl: text;
+   updatedAt: Timestamp;
+   upiId: text;
+ };
+type PartnerPreferences = 
+ record {
+   maxAge: opt nat;
+   maxHeight: opt nat;
+   maxIncome: opt nat;
+   minAge: opt nat;
+   minHeight: opt nat;
+   minIncome: opt nat;
+   preferredEducation: vec text;
+   preferredLocations: vec text;
+   preferredOccupation: vec text;
+   preferredUpjati: vec text;
+ };
+type NakshatraData = 
+ record {
+   charan: nat;
+   moonLongitude: float64;
+   nakshatra: nat;
+   rashi: nat;
+ };
+type MessageId = nat;
+type Message = 
+ record {
+   content: text;
+   createdAt: Timestamp;
+   id: MessageId;
+   isDeleted: bool;
+   isRead: bool;
+   receiverId: MemberId;
+   senderId: MemberId;
+ };
+type MembershipTier = 
+ variant {
+   Free;
+   Premium;
+ };
+type MemberInput = 
+ record {
+   age: nat;
+   annualIncomeINR: nat;
+   birthPlace: opt text;
+   birthPlaceLat: opt float64;
+   birthPlaceLng: opt float64;
+   birthTime: opt text;
+   city: text;
+   dateOfBirth: text;
+   education: text;
+   familyType: FamilyType;
+   fatherOccupation: text;
+   gender: Gender;
+   heightCm: nat;
+   mobileNumber: opt text;
+   motherOccupation: text;
+   name: text;
+   nativePlace: text;
+   occupation: text;
+   partnerPreferences: PartnerPreferences;
+   photoUrl: text;
+   siblingsCount: nat;
+   upjati: opt text;
+ };
+type MemberId = nat;
+type MemberAdminSummary = 
+ record {
+   city: text;
+   createdAt: Timestamp;
+   gender: Gender;
+   hasPhoto: bool;
+   id: MemberId;
+   isActive: bool;
+   isProfileComplete: bool;
+   isVerified: bool;
+   membership: MembershipTier;
+   name: text;
+   owner: principal;
+   paymentStatus: PaymentStatus;
+   photoModerationStatus: PhotoModerationStatus;
+ };
+type Member = 
+ record {
+   age: nat;
+   annualIncomeINR: nat;
+   birthPlace: opt text;
+   birthPlaceLat: opt float64;
+   birthPlaceLng: opt float64;
+   birthTime: opt text;
+   charan: opt nat;
+   city: text;
+   createdAt: Timestamp;
+   dateOfBirth: text;
+   education: text;
+   familyType: FamilyType;
+   fatherOccupation: text;
+   gender: Gender;
+   heightCm: nat;
+   id: MemberId;
+   isActive: bool;
+   isVerified: bool;
+   membership: MembershipTier;
+   mobileNumber: opt text;
+   motherOccupation: text;
+   nakshatra: opt nat;
+   name: text;
+   nativePlace: text;
+   occupation: text;
+   owner: principal;
+   partnerPreferences: PartnerPreferences;
+   paymentScreenshotUrl: opt text;
+   paymentStatus: PaymentStatus;
+   paymentUpiRef: opt text;
+   photoAssetId: opt text;
+   photoModerationStatus: PhotoModerationStatus;
+   photoUrl: text;
+   profileViews: nat;
+   rashi: opt nat;
+   siblingsCount: nat;
+   updatedAt: Timestamp;
+   upjati: opt text;
+ };
+type KundaliResult = 
+ record {
+   charan1: nat;
+   charan2: nat;
+   nakshatra1: nat;
+   nakshatra1Name: text;
+   nakshatra2: nat;
+   nakshatra2Name: text;
+   rashi1: nat;
+   rashi2: nat;
+   score: AshtakootResult;
+   verdict: text;
+ };
+type Gender = 
+ variant {
+   Female;
+   Male;
+ };
+type FamilyType = 
+ variant {
+   Extended;
+   Joint;
+   Nuclear;
+ };
+type CreateAdInput = 
+ record {
+   adText: text;
+   adType: AdType;
+   companyName: text;
+   contactNumber: text;
+   endDate: Timestamp;
+   imageAssetId: text;
+   imageUrl: text;
+   langText: AdLangText;
+   startDate: Timestamp;
+   websiteLink: text;
+ };
+type ConversationSummary = 
+ record {
+   lastMessage: text;
+   lastMessageAt: Timestamp;
+   otherMemberId: MemberId;
+   otherMemberName: text;
+   unreadCount: nat;
+ };
+type ChatMessageId = nat;
+type ChatMessage = 
+ record {
+   createdAt: Timestamp;
+   id: ChatMessageId;
+   isBot: bool;
+   language: text;
+   message: text;
+   sessionId: text;
+   userId: opt MemberId;
+ };
+type ChatConversationSummary = 
+ record {
+   firstMessage: text;
+   lastActivity: Timestamp;
+   messageCount: nat;
+   sessionId: text;
+   userId: opt MemberId;
+ };
+type AshtakootResult = 
+ record {
+   bhakoot: nat;
+   gana: nat;
+   grahaMaitri: nat;
+   nadi: nat;
+   tara: nat;
+   total: nat;
+   varna: nat;
+   vashya: nat;
+   yoni: nat;
+ };
+type AnnouncementInput = 
+ record {
+   author: text;
+   content: text;
+   title: text;
+ };
+type AnnouncementId = nat;
+type Announcement = 
+ record {
+   author: text;
+   content: text;
+   createdAt: Timestamp;
+   id: AnnouncementId;
+   isActive: bool;
+   title: text;
+   updatedAt: Timestamp;
+ };
+type AdType = 
+ variant {
+   both;
+   image;
+   "text";
+ };
+type AdLangText = 
+ record {
+   en: text;
+   hi: text;
+   kn: text;
+   mr: text;
+ };
+type AdId = nat;
+type Ad = 
+ record {
+   adText: text;
+   adType: AdType;
+   clicks: nat;
+   companyName: text;
+   contactNumber: text;
+   createdAt: Timestamp;
+   endDate: Timestamp;
+   id: AdId;
+   imageAssetId: text;
+   imageUrl: text;
+   isActive: bool;
+   langText: AdLangText;
+   startDate: Timestamp;
+   updatedAt: Timestamp;
+   views: nat;
+   websiteLink: text;
+ };
+service : {
+  adminApproveMember: (memberId: MemberId) -> (variant {
+                                                 err: text;
+                                                 ok;
+                                               });
+  adminApprovePayment: (memberId: MemberId) -> (variant {
+                                                  err: text;
+                                                  ok;
+                                                });
+  adminApproveProfilePhoto: (memberId: MemberId) -> (variant {
+                                                       err: text;
+                                                       ok;
+                                                     });
+  adminBlockMember: (memberId: MemberId) -> (variant {
+                                               err: text;
+                                               ok;
+                                             });
+  adminCreateAd: (input: CreateAdInput) -> (Ad);
+  adminCreateAnnouncement: (input: AnnouncementInput) -> (AnnouncementId);
+  adminCreateSuccessStory: (input: SuccessStoryInput) -> (StoryId);
+  adminDeleteAd: (id: AdId) -> (bool);
+  adminDeleteAnnouncement: (id: AnnouncementId) -> (bool);
+  adminDeleteMember: (id: MemberId) -> (bool);
+  adminDeleteMemberPhoto: (memberId: MemberId) -> (variant {
+                                                     err: text;
+                                                     ok;
+                                                   });
+  adminDeleteMessage: (messageId: MessageId) -> (variant {
+                                                   err: text;
+                                                   ok;
+                                                 });
+  adminDeleteProfile: (memberId: MemberId) -> (variant {
+                                                 err: text;
+                                                 ok;
+                                               });
+  adminDeleteSuccessStory: (id: StoryId) -> (bool);
+  adminGetAllChatConversations: (cursor: nat, limit: nat) ->
+   (record {
+      conversations: vec ChatConversationSummary;
+      total: nat;
+    }) query;
+  adminGetChatSession: (sessionId: text) -> (vec ChatMessage) query;
+  adminGetConversation: (memberId1: MemberId, memberId2: MemberId, offset:
+   nat, limit: nat) -> (vec Message) query;
+  adminGetCredentialInfo: () ->
+   (record {
+      adminMobile: text;
+      isLocked: bool;
+      username: text;
+    }) query;
+  adminGetPaymentConfig: () -> (PaymentConfigPublic) query;
+  adminGetSmsConfig: () -> (opt SmsConfig) query;
+  adminGetSmsOtpLogs: () -> (vec SmsOtpLogEntry) query;
+  adminGetStats: () -> (Stats) query;
+  adminListAllAds: () -> (vec Ad);
+  adminListAllMembers: () -> (vec Member) query;
+  adminListAllPhotos: () -> (vec PhotoModerationInfo) query;
+  adminLogin_Step1_CheckPassword: (username: text, password: text) ->
+   (variant {
+      invalid;
+      locked: text;
+      ok: text;
+    });
+  adminLogin_Step2_VerifyOtp: (username: text, otp: text) ->
+   (variant {
+      expired;
+      invalid;
+      ok;
+    });
+  adminMuteConversation: (memberId1: MemberId, memberId2: MemberId, muted:
+   bool) -> (variant {
+               err: text;
+               ok;
+             });
+  adminRejectMember: (memberId: MemberId, _reason: opt text) ->
+   (variant {
+      err: text;
+      ok;
+    });
+  adminRejectPayment: (memberId: MemberId, _reason: text) ->
+   (variant {
+      err: text;
+      ok;
+    });
+  adminRejectProfilePhoto: (memberId: MemberId) -> (variant {
+                                                      err: text;
+                                                      ok;
+                                                    });
+  adminSearchMembers: ("query": text) -> (vec Member) query;
+  adminSetAdmin: (newAdmin: principal) -> (bool);
+  adminSetMemberActive: (id: MemberId, active: bool) -> (bool);
+  adminSetPaymentConfig: (upiId: text, qrImageUrl: text, qrImageAssetId:
+   text) -> (variant {
+               err: text;
+               ok;
+             });
+  adminSetSmsConfig: (config: SmsConfig) -> (variant {
+                                               err: text;
+                                               ok;
+                                             });
+  adminTestSms: (mobile: text) -> (variant {
+                                     err: text;
+                                     ok: text;
+                                   });
+  adminToggleAdActive: (id: AdId) -> (opt Ad);
+  adminUnverifyProfile: (memberId: MemberId) -> (variant {
+                                                   err: text;
+                                                   ok;
+                                                 });
+  adminUpdateAd: (input: UpdateAdInput) -> (opt Ad);
+  adminUpdateAnnouncement: (id: AnnouncementId, input: AnnouncementInput) ->
+   (bool);
+  adminUpdateCredentials: (newPassword: opt text, newMobile: opt text) ->
+   (variant {
+      err: text;
+      ok;
+    });
+  adminUpdateSuccessStory: (id: StoryId, input: SuccessStoryInput) -> (bool);
+  adminVerifyProfile: (memberId: MemberId) -> (variant {
+                                                 err: text;
+                                                 ok;
+                                               });
+  computeKundaliMilan: (dob1: text, dob2: text) -> (opt KundaliResult) query;
+  computeKundaliScore: (dob1: text, dob2: text, birthTime1: opt text,
+   birthTime2: opt text, birthLat1: opt float64, birthLng1: opt float64,
+   birthLat2: opt float64, birthLng2: opt float64) ->
+   (opt KundaliResult) query;
+  computePreciseNakshatra: (date: text, time: text, lat: float64, lng:
+   float64) -> (opt NakshatraData) query;
+  createProfile: (input: MemberInput) -> (MemberId);
+  deleteProfile: () -> (bool);
+  getActiveAds: () -> (vec Ad) query;
+  getAnnouncement: (id: AnnouncementId) -> (opt Announcement) query;
+  getChatGreeting: (language: text) -> (text) query;
+  getChatHistory: (sessionId: text) -> (vec ChatMessage) query;
+  getConversation: (otherMemberId: MemberId, offset: nat, limit: nat) ->
+   (vec Message) query;
+  getDailyMessageCount: () -> (nat) query;
+  getMemberProfile: (id: MemberId) -> (opt Member) query;
+  getMyConversations: () -> (vec ConversationSummary) query;
+  getMyMatches: () -> (vec Member) query;
+  getMyProfile: () -> (opt Member) query;
+  getNakshatraForDob: (dob: text) -> (opt nat) query;
+  getNakshatraName: (index: nat) -> (text) query;
+  getNearbyMatches: () -> (vec Member) query;
+  getProfilePhotoUploadUrl: () -> (variant {
+                                     err: text;
+                                     ok: text;
+                                   });
+  getStats: () -> (Stats) query;
+  getSuccessStory: (id: StoryId) -> (opt SuccessStory) query;
+  getTodaysMatches: () -> (vec Member) query;
+  listAllMembers: () -> (vec MemberAdminSummary) query;
+  listAnnouncements: () -> (vec Announcement) query;
+  listFeaturedStories: () -> (vec SuccessStory) query;
+  listPendingPayments: () -> (vec Member) query;
+  listPremiumProfiles: () -> (vec Member) query;
+  listProfiles: (offset: nat, limit: nat) -> (vec Member) query;
+  listSuccessStories: () -> (vec SuccessStory) query;
+  markAsRead: (fromMemberId: MemberId) -> (variant {
+                                             err: text;
+                                             ok;
+                                           });
+  recordAdClick: (id: AdId) -> ();
+  recordAdView: (id: AdId) -> ();
+  searchProfiles: (filter: SearchFilter) -> (vec Member) query;
+  sendChatMessage: (sessionId: text, message: text, language: text) -> (text);
+  sendMessage: (receiverMemberId: MemberId, content: text) ->
+   (variant {
+      err: text;
+      ok: MessageId;
+    });
+  sendOtp: (mobile: text) -> (variant {
+                                err: text;
+                                ok: text;
+                              });
+  submitPaymentScreenshot: (screenshotUrl: text, upiRef: text) ->
+   (variant {
+      err: text;
+      ok;
+    });
+  updateMemberNakshatra: () -> (variant {
+                                  err: text;
+                                  ok;
+                                });
+  updatePaymentStatus: (memberId: MemberId, status: PaymentStatus) ->
+   (variant {
+      err: text;
+      ok;
+    });
+  updateProfile: (input: MemberInput) -> (bool);
+  updateProfilePhoto: (assetId: text) -> (variant {
+                                            err: text;
+                                            ok;
+                                          });
+  upgradeToPremium: () -> (bool);
+  verifyOtp: (mobile: text, otp: text) -> (variant {
+                                             err: text;
+                                             ok: bool;
+                                           });
+}

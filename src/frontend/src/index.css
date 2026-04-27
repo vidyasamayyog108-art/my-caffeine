@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Fraunces";
+    --font-body: "General Sans";
+    --font-mono: "Geist Mono";
+    --radius: 0.5rem;
+
+    --background: 0.98 0.01 70;
+    --foreground: 0.22 0.05 30;
+    --card: 0.995 0.005 70;
+    --card-foreground: 0.22 0.05 30;
+    --popover: 0.995 0.005 70;
+    --popover-foreground: 0.22 0.05 30;
+
+    --primary: 0.65 0.22 60;
+    --primary-foreground: 0.98 0.01 70;
+
+    --secondary: 0.35 0.15 25;
+    --secondary-foreground: 0.98 0.01 70;
+    --muted: 0.96 0.01 70;
+    --muted-foreground: 0.45 0.03 50;
+
+    --accent: 0.75 0.15 80;
+    --accent-foreground: 0.22 0.05 30;
+
+    --destructive: 0.55 0.18 10;
+    --destructive-foreground: 0.98 0.01 70;
+
+    --border: 0.92 0.02 70;
+    --input: 0.92 0.02 70;
+    --ring: 0.65 0.22 60;
+
+    --chart-1: 0.65 0.22 60;
+    --chart-2: 0.75 0.15 80;
+    --chart-3: 0.35 0.15 25;
+    --chart-4: 0.55 0.18 10;
+    --chart-5: 0.45 0.03 50;
+
+    --sidebar: 0.98 0.01 70;
+    --sidebar-foreground: 0.22 0.05 30;
+    --sidebar-primary: 0.65 0.22 60;
+    --sidebar-primary-foreground: 0.98 0.01 70;
+    --sidebar-accent: 0.75 0.15 80;
+    --sidebar-accent-foreground: 0.22 0.05 30;
+    --sidebar-border: 0.92 0.02 70;
+    --sidebar-ring: 0.65 0.22 60;
+  }
+
+  .dark {
+    --background: 0.18 0.04 30;
+    --foreground: 0.95 0.02 70;
+    --card: 0.22 0.04 30;
+    --card-foreground: 0.95 0.02 70;
+    --popover: 0.25 0.04 30;
+    --popover-foreground: 0.95 0.02 70;
+
+    --primary: 0.7 0.2 60;
+    --primary-foreground: 0.18 0.04 30;
+
+    --secondary: 0.35 0.15 25;
+    --secondary-foreground: 0.95 0.02 70;
+    --muted: 0.28 0.02 30;
+    --muted-foreground: 0.65 0.01 70;
+
+    --accent: 0.75 0.14 80;
+    --accent-foreground: 0.18 0.04 30;
+
+    --destructive: 0.6 0.17 15;
+    --destructive-foreground: 0.95 0.02 70;
+
+    --border: 0.32 0.03 30;
+    --input: 0.32 0.03 30;
+    --ring: 0.7 0.2 60;
+
+    --chart-1: 0.7 0.2 60;
+    --chart-2: 0.75 0.14 80;
+    --chart-3: 0.35 0.15 25;
+    --chart-4: 0.6 0.17 15;
+    --chart-5: 0.65 0.01 70;
+
+    --sidebar: 0.22 0.04 30;
+    --sidebar-foreground: 0.95 0.02 70;
+    --sidebar-primary: 0.7 0.2 60;
+    --sidebar-primary-foreground: 0.18 0.04 30;
+    --sidebar-accent: 0.75 0.14 80;
+    --sidebar-accent-foreground: 0.18 0.04 30;
+    --sidebar-border: 0.32 0.03 30;
+    --sidebar-ring: 0.7 0.2 60;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: url("/assets/fonts/Fraunces.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  display: inline-block;
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.marquee-banner:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .shadow-subtle {
+    box-shadow: 0 1px 4px oklch(var(--foreground) / 0.08);
+  }
+
+  .text-premium {
+    @apply text-accent font-bold text-sm tracking-wider uppercase;
+  }
+
+  .border-premium {
+    @apply border-2 border-accent;
+  }
+
+  .shadow-premium {
+    box-shadow: 0 4px 12px oklch(var(--primary) / 0.08);
+  }
+
+  .gradient-primary {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--primary)),
+      oklch(var(--accent))
+    );
+  }
+
+  .gradient-warm {
+    background: linear-gradient(
+      to right,
+      oklch(var(--secondary)),
+      oklch(var(--primary))
+    );
+  }
+}
